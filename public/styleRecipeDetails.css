@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+#logo {
+    margin-left: 16.5%;
+    margin-top: 3.3%;
+    margin-right: 8.7%;
+    margin-bottom: 4.6%;
+}
+
+#logo:hover, #logo:active {
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+}
+
+header #recipes {
+    font-weight: 700;
+}
+
+header a {
+    color: #111111;
+    margin-top: 3.4%;
+    margin-right: 2.1%;
+    margin-bottom: 3.3%;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+#intro img {
+    width: 940px;
+    height: 280px;
+    border-radius: 15px;
+    display: grid;
+    margin: 0 auto 0;
+}
+
+#intro h1 {
+    font-size: 3.6rem;
+    margin: 3.9% auto 0;
+    text-align: center;
+}
+
+#intro p {
+    font-size: 2.0rem;
+    color: #777777;
+    margin: 0.3% auto 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.4rem;
+    margin: 3.1% 16.4% 1.6%;
+}
+
+li {
+    font-size: 1.8rem;
+    margin: 0 16.4% 0;
+    color: #444444;
+    line-height: 2.8rem;
+}
+
+button {
+    color: #999999;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-width: 0;
+}
+
+#aditionalInfo p {
+    font-size: 1.8rem;
+    margin: 0 16.4% 0;
+    color: #444444;
+    line-height: 2.8rem;
+    text-align: justify;
+}
+
+.hide {
+    opacity: 0;
+    visibility: 0;
+    display: none
+}
+
+footer {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #999999;
+    background-color: #eeeeee;
+    padding: 2.75%;
+    margin-top: 8%;
+}
+
+@media (max-width: 940px) {
+    #intro img {
+    width: 80%;
+    height: auto;
+    border-radius: 15px;
+    display: grid;
+    margin-right: auto;
+    margin-left: auto;
+}

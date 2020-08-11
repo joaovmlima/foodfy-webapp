@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chefs Foodfy</title>
+        <link rel="stylesheet" href="styleChefs.css">
+    </head>
+
+    <body>
+        <header>
+            <a id="logo" href="/"><img src="assets/logo.png" alt="logo Foodfy"></a>
+            <a id="about" href="/about">Sobre</a>
+            <a id="recipes" href="/recipes">Receitas</a>
+            <a id="chefs" href="/chefs">Chefs</a>
+        </header>
+
+        <section class="cards">
+            {% for chef in chefs %}
+                <div class="card">
+                    <a class="gotoDetails" href="/chefs/{{chef.id}}">
+                        <img src="{{chef.avatar_url}}" alt="Foto de {{chef.name}}">
+                    </a>
+                    <section id="moreInfo">
+                        <h1>
+                            <a class="gotoDetails" href="/chefs/{{chef.id}}">{{chef.name}}</a>
+                        </h1>
+                        <button>
+                            <a href="/chefs/{{chef.id}}">Visualizar</a>
+                        </button>
+                    </section>
+                </div>
+            {% endfor %}
+        </section>
+    </body>
+</html>

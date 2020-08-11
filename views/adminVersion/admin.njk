@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/adminStyles/styleAdminRecipes.css">
+        <title>Administrador Foodfy</title>
+    </head>
+
+    <body>
+        <header>
+            <a id="logo" href="/admin"><img src="/assets/logo-white.png" alt="logo Foodfy"></a>
+            <a href="/admin/recipes">Receitas</a>
+            <a href="/admin/chefs">Chefs</a>
+        </header>
+
+        <div id="manageRecipes">
+            <h1>Gerenciar Receitas</h1>
+        </div>
+
+        <section class="cards">
+            {% for recipe in recipes %}
+                <div class="card">
+                    <a class="gotoDetails" href="/admin/recipes/{{recipe.id}}">
+                        <img src="{{recipe.image}}" alt="Foto de {{recipe.title}}">
+                    </a>
+                    <section id="moreInfo">
+                        <h1>
+                            <a class="gotoDetails" href="/admin/recipes/{{recipe.id}}">{{recipe.title}}</a>
+                        </h1>
+                        <p>por
+                            {{recipe.name}}
+                        </p>
+                        <button>
+                            <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+                        </button>
+                    </section>
+                </div>
+            {% endfor %}
+        </section>
+
+        <footer></footer>
+
+    </body>

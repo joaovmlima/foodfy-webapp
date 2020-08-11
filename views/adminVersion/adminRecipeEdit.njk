@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/adminStyles/styleAdminRecipeEdit.css">
+        <title>Editar receita</title>
+    </head>
+
+    <body>
+        <header>
+            <a id="logo" href="/admin"><img src="/assets/logo-white.png" alt="logo Foodfy"></a>
+            <a href="/admin/recipes">Receitas</a>
+            <a href="/admin/chefs">Chefs</a>
+        </header>
+
+        <div class="recipeHeader">
+            <h1>Editando receita</h1>
+            <button id="delete" type="submit" form="deleteForm">Deletar</button>
+            <button id="save" type="submit" form="recipeForm">Salvar receita</button>
+        </div>
+
+        <section>
+            <form class="recipeForm" id="recipeForm" method="POST" action="/admin/recipes/{{recipe.id}}?_method=PUT">
+                <div id="img">
+                    <span>Imagem da receita</span>
+                    <input type="url" name="image" value="{{recipe.image}}">
+                </div>
+
+                <div id="title">
+                    <span>Título da receita</span>
+                    <input type="text" name="title" value="{{recipe.title}}">
+                </div>
+
+                <div id="chef">
+                    <span>Chef</span>
+                    <select name="chef" id="chefId" placeholder="Selecione um Chef">
+                        {% for chef in chefs %}
+                            {% if chef.id === recipe.chef_id %}
+                                <option value="{{chef.id}}" selected="selected">{{chef.name}}</option>
+                            {% else %}
+                                <option value="{{chef.id}}">{{chef.name}}</option>
+                            {% endif %}
+
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div id="ingredients">
+                    <span>Ingredientes</span>
+                    {% for ingredient in recipe.ingredients %}
+                        <input type="text" name="ingredients[]" value="{{ingredient}}">
+                    {% endfor %}
+                </div>
+                <button class="addIngredient" type="button">Adicionar ingrediente</button>
+
+                <div id="prepareMethod">
+                    <span>Modo de preparo</span>
+                    {% for preparation in recipe.preparation %}
+                        <input type="text" name="preparation[]" value="{{preparation}}">
+                    {% endfor %}
+                </div>
+                <button class="addMethod" type="button">Adicionar novo passo</button>
+
+                <div id="aditionalInfo">
+                    <span>Informações adicionais</span>
+                    <textarea name="information" cols="40" rows="5">{{recipe.information}}</textarea>
+                </div>
+            </form>
+            <form id="deleteForm" method="POST" action="/admin/recipes/{{recipe.id}}?_method=DELETE"></form>
+        </section>
+
+        <script src="/scripts.js"></script>
+
+        <footer></footer>
+    </body>
+
+</html>

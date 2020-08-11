@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/adminStyles/styleAdminChefEdit.css">
+        <title>Cadastrar Chef</title>
+    </head>
+
+    <body>
+        <header>
+            <a id="logo" href="/"><img src="/assets/logo-white.png" alt="logo Foodfy"></a>
+            <a href="/admin/recipes">Receitas</a>
+            <a href="/admin/chefs">Chefs</a>
+        </header>
+
+        <div class="chefHeader">
+            <h1>Editando chef</h1>
+            <button id="delete" type="submit" form="deleteForm">Deletar</button>
+            <button id="save" type="submit" form="chefForm">Salvar chef</button>
+        </div>
+
+        <section>
+            <form class="chefForm" id="chefForm" method="POST" action="/admin/chefs">
+                <div id="avatar">
+                    <span>Avatar</span>
+                    <input type="url" name="avatar_url" value="{{chef.avatar_url}}">
+                </div>
+
+                <div id="name">
+                    <span>Nome</span>
+                    <input type="text" name="name" value="{{chef.name}}">
+                </div>
+            </form>
+            <form id="deleteForm" method="POST" action="/admin/chefs/{{chef.id}}?_method=DELETE"></form>
+        </section>
+    </body>
+
+</html>

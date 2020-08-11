@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/adminStyles/styleAdminChefCreate.css">
+        <title>Cadastrar Chef</title>
+    </head>
+
+    <body>
+        <header>
+            <a id="logo" href="/"><img src="/assets/logo-white.png" alt="logo Foodfy"></a>
+            <a href="/admin/recipes">Receitas</a>
+            <a href="/admin/chefs">Chefs</a>
+        </header>
+
+        <div class="chefHeader">
+            <h1>Criando chef</h1>
+            <button id="save" type="submit" form="chefForm">Salvar chef</button>
+        </div>
+
+        <section>
+            <form class="chefForm" id="chefForm" method="POST" action="/admin/chefs">
+                <div id="avatar">
+                    <span>Avatar</span>
+                    <input type="url" name="avatar_url">
+                </div>
+
+                <div id="name">
+                    <span>Nome</span>
+                    <input type="text" name="name">
+                </div>
+
+            </section>
+        </body>
+
+    </html>

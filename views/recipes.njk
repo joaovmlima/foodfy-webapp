@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styleRecipes.css">
+        <title>Foodfy - Receitas</title>
+    </head>
+
+    <body>
+        <header>
+            <a id="logo" href="/"><img src="/assets/logo.png" alt="logo Foodfy"></a>
+
+            <a id="about" href="/about">Sobre</a>
+            <a id="recipes" href="/recipes">Receitas</a>
+            <a id="chefs" href="/chefs">Chefs</a>
+
+        </header>
+
+        <section class="cards">
+            {% for recipe in recipes %}
+                <div class="card">
+                    <a class="gotoDetails" href="/recipes/{{recipe.id}}">
+                        <img src="{{recipe.image}}" alt="Foto de {{recipe.title}}">
+                    </a>
+                    <h1>
+                        <a class="gotoDetails" href="/recipes/{{recipe.id}}">{{recipe.title}}</a>
+                    </h1>
+                    <p>{{recipe.name}}</p>
+                </div>
+            {% endfor %}
+        </section>
+
+        <footer>
+            <p>Todos direitos reservados, receitas Foodfy.</p>
+        </footer>
+
+    </body>

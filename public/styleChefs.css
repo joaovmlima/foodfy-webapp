@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+#logo {
+    margin-left: 16.5%;
+    margin-top: 3.3%;
+    margin-right: 8.7%;
+    margin-bottom: 4.6%;
+}
+
+#logo:hover, #logo:active {
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+}
+
+header #chefs {
+    font-weight: 700;
+}
+
+header a {
+    color: #111111;
+    margin-top: 3.4%;
+    margin-right: 2.1%;
+    margin-bottom: 3.3%;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+#manageChefs h1 {
+    margin: 4.5% 16.5% 2.7%;
+    font-size: 2.4rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-right: 16.4%;
+    margin-left: 16.4%;
+    gap: 16% 1.4%;
+}
+
+.cards img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-bottom: 1.8%;
+}
+
+.card {
+    display: flex;
+    max-height: 80px;
+}
+
+.card h1, .card a {
+    width: fit-content;
+    text-decoration: none;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: #111111;
+}
+
+.card p {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    margin-top: 2%;
+    color: #777777;
+}
+
+#moreInfo {
+    margin-left: 1.4%;
+    display: inline-grid;
+    max-height: 80px;
+}
+
+#moreInfo button, #moreInfo button a {
+    border: none;
+    padding: 0;
+    color: #6558C3;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    outline: none;
+    max-width: 6.3rem;
+    max-height: 1.6rem;
+    background-color: white;
+}

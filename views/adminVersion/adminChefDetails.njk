@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/adminStyles/styleAdminChefDetails.css">
+        <title>Foodfy Chef</title>
+    </head>
+
+    <body>
+        <header>
+            <a id="logo" href="/admin"><img src="/assets/logo-white.png" alt="logo Foodfy"></a>
+            <a href="/admin/recipes">Receitas</a>
+            <a href="/admin/chefs">Chefs</a>
+        </header>
+
+        <div class="chefHeader">
+            <h1>Chef:
+                {{chef.name}}</h1>
+            <a href="/admin/chefs/{{chef.chef_id}}/edit">
+                <button>Editar chef</button>
+            </a>
+        </div>
+
+        <div id="intro">
+            <img id="image" src="{{chef.avatar_url}}" alt="foto de {{chef.name}}">
+            <h1 id="title">{{chef.name}}</h1>
+            {% if recipes[0].title === null %}
+                <p id="recipeNumber">0 receitas</p>
+            {% else %}
+                <p id="recipeNumber">{{recipes.length + " receitas"}}</p>
+            {% endif %}
+        </div>
+
+        <div id="recipes">
+            <h2>Receitas</h2>
+
+            <section class="cards">
+                {% for recipe in recipes %}
+                    <div class="card">
+                        <a class="gotoDetails" href="/admin/recipes/{{recipe.id}}">
+                            <img src="{{recipe.image}}" alt="Foto de {{recipe.title}}">
+                        </a>
+                        <section id="moreInfo">
+                            <h1>
+                                <a class="gotoDetails" href="/admin/recipes/{{recipe.id}}">{{recipe.title}}</a>
+                            </h1>
+                            <p>por
+                                {{recipe.name}}</p>
+                            <button>
+                                <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+                            </button>
+                        </section>
+                    </div>
+                {% endfor %}
+            </div>
+            <script src="/hideCards.js"></script>
+
+            <footer>
+                <p>Todos direitos reservados, receitas Foodfy.</p>
+            </footer>
+        </body>

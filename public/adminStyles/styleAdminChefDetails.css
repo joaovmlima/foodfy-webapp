@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    height: 100%;
+}
+
+header {
+    display: flex;
+    background-color: #111;
+}
+
+#logo {
+    margin: 2.4% 0 2.4% 16.5%;
+}
+
+#logo:hover, #logo:active {
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+}
+
+header #chefs {
+    font-weight: 700;
+}
+
+header a, header a:visited {
+    margin: 2.6% 2% 0 2.1%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+header a:nth-child(2) {
+    margin: 2.6% 0 0 3.6%;
+    color: #999999;
+}
+
+.chefHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 3.7% 14.6% 1.6% 16.4%;
+}
+
+.chefHeader h1 {
+    font-size: 2.4rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.chefHeader button, .chefHeader a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin-left: auto;
+
+    padding: 0.6% 1.4%;
+    background-color: #6558C3;
+    border-radius: 4%;
+    border-width: 0;
+    outline: none;
+    width: 13.6rem;
+    height: 3.7rem;
+}
+
+.chefHeader button:hover {
+    cursor: pointer;
+}
+
+#intro img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: grid;
+    margin: 0 auto 0;
+}
+
+#intro h1 {
+    font-size: 3.6rem;
+    margin: 3.9% auto 0;
+    text-align: center;
+}
+
+#intro p {
+    font-size: 2.0rem;
+    color: #777777;
+    margin: 0.3% auto 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.4rem;
+    margin: 3.1% 16.4% 1.6%;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    margin-right: 16.4%;
+    margin-left: 16.4%;
+    gap: 16% 1.4%;
+}
+
+.cards img {
+    width: 172px;
+    height: 80px;
+    border-radius: 8.57px;
+    margin-bottom: 1.8%;
+}
+
+.card {
+    display: flex;
+    max-height: 80px;
+}
+
+.card h1, .card a {
+    width: fit-content;
+    text-decoration: none;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: #111111;
+}
+
+.card p {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    margin-top: 2%;
+    color: #777777;
+}
+
+#moreInfo {
+    margin-left: 1.4%;
+    display: inline-grid;
+    max-height: 80px;
+}
+
+#moreInfo button, #moreInfo button a {
+    border: none;
+    padding: 0;
+    color: #6558C3;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    outline: none;
+    max-width: 6.3rem;
+    max-height: 1.6rem;
+    margin-top: auto;
+}
+
+footer {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #999999;
+    margin: 4.5% auto 2.1%;
+}
+
+@media (max-width: 940px) {
+    #intro img {
+    width: 80%;
+    height: auto;
+    border-radius: 15px;
+    display: grid;
+    margin-right: auto;
+    margin-left: auto;
+}
+}
