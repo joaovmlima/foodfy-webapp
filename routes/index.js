@@ -8,7 +8,6 @@ routes.get("/", function (req, res) {
         FROM recipes
         LEFT JOIN chefs C ON (recipes.chef_id = C.id)
         ORDER BY recipes.created_at DESC`, function (err, results) {
-        console.log(err)
         if (err) return res.send('Database Error!')
 
         return res.render("index", { recipes: results.rows })
