@@ -4,15 +4,26 @@ const recipes = require("./recipes")
 const db = require('../src/db')
 
 routes.get("/", function (req, res) {
-    db.query(`SELECT recipes.id, recipes.created_at, recipes.image, recipes.title, C.name
+    let { filter } = req.query
+    if (filter) {
+        db.query(`SELECT recipes.id, recipes.created_at, recipes.image, recipes.title, C.name FROM recipes LEFT JOIN chefs C ON(recipes.chef_id = C.id) WHERE recipes.title ILIKE '%${filter}%'`,
+            function (err, results) {
+                if (err) return res.send('Database Error!')
+
+                return res.render("search", { filter, recipes: results.rows })
+            })
+    } else {
+        db.query(`SELECT recipes.id, recipes.created_at, recipes.image, recipes.title, C.name
         FROM recipes
         LEFT JOIN chefs C ON (recipes.chef_id = C.id)
         ORDER BY recipes.created_at DESC`, function (err, results) {
-        if (err) return res.send('Database Error!')
+            if (err) return res.send('Database Error!')
 
-        return res.render("index", { recipes: results.rows })
-    })
+            return res.render("index", { recipes: results.rows })
+        })
+    }
 })
+
 routes.get("/about", function (req, res) {
     return res.render("about")
 })
