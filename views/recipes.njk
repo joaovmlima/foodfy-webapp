@@ -15,9 +15,10 @@
             <a id="about" href="/about">Sobre</a>
             <a id="recipes" href="/recipes">Receitas</a>
             <a id="chefs" href="/chefs">Chefs</a>
-            <input type="text" placeholder="Buscar uma receita" class="search">
-            <button class="search">Buscar</button>
-
+            <form action="/" method="GET">
+                <input name="filter" type="text" placeholder="Buscar uma receita" class="search">
+                <button class="search" type="submit">Buscar</button>
+            </form>
         </header>
 
         <section class="cards">
