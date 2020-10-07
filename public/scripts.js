@@ -1,5 +1,4 @@
 //Funcionamento dos botões de expandir detalhes das receitas
-
 const buttonIngredient = document.querySelector('#ingredients #buttonIngredients')
 const buttonPrepareMethod = document.querySelector('#prepareMethod #buttonMethod')
 const buttonAditionalInfo = document.querySelector("#aditionalInfo button")
@@ -43,25 +42,43 @@ if (buttonAditionalInfo != null) {
 //Fields dinamicos dos ingredientes
 const addIngredient = document.querySelector('.addIngredient')
 
-addIngredient.addEventListener("click", function () {
-    var input = document.createElement("INPUT");
-    document.getElementById("ingredients").appendChild(input).setAttribute("name", "ingredients")
-})
+if (addIngredient != null) {
+    addIngredient.addEventListener("click", function () {
+        var input = document.createElement("INPUT");
+        document.getElementById("ingredients").appendChild(input).setAttribute("name", "ingredients")
+    })
+}
 
 //Fields dinamicos dos metodos de preparo
 const addMethod = document.querySelector('.addMethod')
 
-addMethod.addEventListener("click", function () {
-    var input = document.createElement("INPUT");
-    document.getElementById("prepareMethod").appendChild(input).setAttribute("name", "preparation")
-})
+if (addMethod != null) {
+    addMethod.addEventListener("click", function () {
+        var input = document.createElement("INPUT");
+        document.getElementById("prepareMethod").appendChild(input).setAttribute("name", "preparation")
+    })
+}
 
 //Confirmação para deletar uma receita
 const deleteForm = document.getElementById('deleteForm')
 
-deleteForm.addEventListener('submit', () => {
-    confirmation = confirm('Deseja excluir a receita?')
-    if (!confirmation) {
-        event.preventDefault()
+if (deleteForm != null) {
+    deleteForm.addEventListener('submit', () => {
+        confirmation = confirm('Deseja excluir a receita?')
+        if (!confirmation) {
+            event.preventDefault()
+        }
+    })
+}
+
+//Esconde os cards se receita se não houver receita cadastrada
+let cardInfo = document.querySelector('h1 a')
+let cards = document.getElementsByClassName('cards')
+
+if (cardInfo != null) {
+    if (cardInfo.innerHTML === "") {
+        cards[0].style.visibility = 'hidden'
     }
-})
+}
+
+//Paginação
