@@ -4,23 +4,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/adminStyles/styleAdminChefDetails.css">
+        <link rel="stylesheet" href="/css/styleChefDetails.css">
         <title>Foodfy Chef</title>
     </head>
 
     <body>
         <header>
-            <a id="logo" href="/admin"><img src="/assets/logo-white.png" alt="logo Foodfy"></a>
-            <a href="/admin/recipes">Receitas</a>
-            <a href="/admin/chefs">Chefs</a>
+            <a id="logo" href="/"><img src="/assets/logo.png" alt="logo Foodfy"></a>
+            <a href="/sobre">Sobre</a>
+            <a href="/recipes">Receitas</a>
+            <a id="chefs" href="/chefs">Chefs</a>
         </header>
 
         <div class="chefHeader">
             <h1>Chef:
                 {{chef.name}}</h1>
-            <a href="/admin/chefs/{{chef.chef_id}}/edit">
-                <button>Editar chef</button>
-            </a>
         </div>
 
         <div id="intro">
@@ -39,23 +37,23 @@
             <section class="cards">
                 {% for recipe in recipes %}
                     <div class="card">
-                        <a class="gotoDetails" href="/admin/recipes/{{recipe.id}}">
+                        <a class="gotoDetails" href="/recipes/{{recipe.id}}">
                             <img src="{{recipe.image}}" alt="Foto de {{recipe.title}}">
                         </a>
                         <section id="moreInfo">
                             <h1>
-                                <a class="gotoDetails" href="/admin/recipes/{{recipe.id}}">{{recipe.title}}</a>
+                                <a class="gotoDetails" href="/recipes/{{recipe.id}}">{{recipe.title}}</a>
                             </h1>
                             <p>por
                                 {{recipe.name}}</p>
                             <button>
-                                <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+                                <a href="/recipes/{{recipe.id}}">Visualizar</a>
                             </button>
                         </section>
                     </div>
                 {% endfor %}
             </div>
-            <script src="/hideCards.js"></script>
+            <script src="/js/scripts.js"></script>
 
             <footer>
                 <p>Todos direitos reservados, receitas Foodfy.</p>

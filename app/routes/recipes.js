@@ -1,4 +1,4 @@
-const db = require('../src/db')
+const db = require('../config/db')
 
 //ROTAS PARA ADMINISTRATIVO
 //  ------- RECIPES

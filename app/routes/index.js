@@ -1,7 +1,7 @@
 const express = require("express")
 const routes = express.Router()
 const recipes = require("./recipes")
-const db = require('../src/db')
+const db = require('../config/db')
 
 routes.get("/", function (req, res) {
     let { filter } = req.query

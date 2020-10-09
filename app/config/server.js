@@ -11,7 +11,7 @@ server.use(express.json())
 server.use(methodOverride('_method'))
 server.use(routes)
 
-nunjucks.configure("views", {
+nunjucks.configure("app/views", {
     express: server,
     noCache: true
 })
