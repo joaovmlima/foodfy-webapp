@@ -8,7 +8,7 @@
         <title>Foodfy - Receitas</title>
     </head>
 
-    <body>
+    <body onload="changeSelectedOption()">
         <header>
             <a id="logo" href="/"><img src="/assets/logo.png" alt="logo Foodfy"></a>
 
@@ -20,6 +20,15 @@
                 <button class="search" type="submit">Buscar</button>
             </form>
         </header>
+
+        <div id="selector">
+            <label for="showPerPage">Mostrar por página</label>
+            <select id="showPerPage" onChange="reloadPage(this.value)">
+                <option value="4" id="4">4</option>
+                <option value="8" id="8">8</option>
+                <option value="12" id="12">12</option>
+            </select>
+        </div>
 
         <section class="cards">
             {% for recipe in recipes %}
@@ -40,6 +49,20 @@
         <footer>
             <p>Todos direitos reservados, receitas Foodfy.</p>
         </footer>
+
+        <script>
+            function reloadPage(showPerPage) {
+                document.location = 'recipes?limit=' + showPerPage
+            }
+
+            function changeSelectedOption() {
+                limit = {{limit}}
+
+                selectedValue = document.getElementById(`${limit}`)
+                selectedValue.setAttribute("selected", "selected")
+                console.log("teste")
+            }
+        </script>
 
         <script src="/scripts.js"></script>
 

@@ -64,6 +64,21 @@ header button.search {
 
 }
 
+div#selector {
+    display: inline-flex;
+    width: 100vw;
+    margin-bottom: 1%;
+}
+
+div#selector label {
+    font-size: 1.4rem;
+    margin: 0 0 0 73.9%;
+}
+
+div#selector #showPerPage {
+    margin: 0 0 0 1%;
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -110,7 +125,7 @@ footer {
     font-size: 1.4rem;
     color: #999999;
     background-color: #eeeeee;
-    padding: 2.75%;
+    padding: 2.75% 0;
     margin-top: 8%;
     position: fixed;
     width: 100vw;

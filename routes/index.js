@@ -27,16 +27,36 @@ routes.get("/", function (req, res) {
 routes.get("/about", function (req, res) {
     return res.render("about")
 })
+
 routes.get("/recipes", function (req, res) {
-    db.query(`SELECT recipes.id, recipes.image, recipes.ingredients, recipes.preparation, recipes.information, recipes.title, C.name
+    //filtering and pagination logic below
+    let { filter, page, limit } = req.query
+
+    page = page || 1
+    limit = limit || 4
+    let offset = limit * (page - 1)
+
+    if (filter) {
+        db.query(`SELECT recipes.id, recipes.created_at, recipes.image, recipes.title, C.name FROM recipes LEFT JOIN chefs C ON(recipes.chef_id = C.id) WHERE recipes.title ILIKE '%${filter}%'`,
+            function (err, results) {
+                if (err) return res.send('Database Error!')
+
+                return res.render("search", { filter, recipes: results.rows })
+            })
+    } else {
+        db.query(`SELECT recipes.id, recipes.image, recipes.ingredients, recipes.preparation, recipes.information, recipes.title, C.name
         FROM recipes
         LEFT JOIN chefs C ON (recipes.chef_id = C.id)
-        ORDER BY recipes.id`, function (err, results) {
-        if (err) return res.send('Database Error!')
+        ORDER BY recipes.id
+        LIMIT $1
+        OFFSET $2`, [limit, offset], function (err, results) {
+            if (err) return res.send('Database Error!')
 
-        return res.render("recipes", { recipes: results.rows })
-    })
+            return res.render("recipes", { limit, recipes: results.rows })
+        })
+    }
 })
+
 routes.get("/recipeDetails", function (req, res) {
     db.query(`SELECT * FROM recipes`, function (err, results) {
         if (err) return res.send('Database Error!')

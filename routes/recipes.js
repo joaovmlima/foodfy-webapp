@@ -4,7 +4,8 @@ const db = require('../src/db')
 //  ------- RECIPES
 
 exports.index = function (req, res) {
-  db.query(`SELECT recipes.id, recipes.image, recipes.ingredients, recipes.preparation, recipes.information, recipes.title, C.name
+  db.query(`SELECT recipes.id, recipes.image, recipes.ingredients, recipes.preparation,
+        recipes.information, recipes.title, C.name
         FROM recipes
         LEFT JOIN chefs C ON (recipes.chef_id = C.id)
         ORDER BY recipes.id`, function (err, results) {
@@ -41,7 +42,6 @@ exports.show = function (req, res) {
       return res.render("adminVersion/adminRecipeDetails", { recipe: results.rows[0] })
     })
 
-
 }
 
 //CREATE/PUSH NEW RECIPES TO DB
@@ -57,7 +57,6 @@ exports.post = function (req, res) {
 
   //GET CREATION DATE
   const created_at = new Date().getTime() / 1000
-
 
   const query = `
         INSERT INTO recipes(
