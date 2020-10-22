@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+#logo {
+    margin-left: 16.5%;
+    margin-top: 3.3%;
+    margin-right: 8.7%;
+    margin-bottom: 4.6%;
+}
+
+#logo:hover, #logo:active {
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+}
+
+header #recipes {
+    font-weight: 700;
+}
+
+header a {
+    color: #111111;
+    margin-top: 3.4%;
+    margin-right: 2.1%;
+    margin-bottom: 3.3%;
+    text-decoration: none;
+    font-size: 1.6rem;
+    height: min-content;
+}
+
+form {
+    display: inherit;
+    margin:3.4% 0 0 25%;
+}
+
+header input.search {
+    width: 180px;
+    height: 22px;
+    padding-left: 0.4%;
+    margin-top: -1%;
+    border: solid #DDDDDD 1px;
+}
+
+header button.search {
+    width: 91px;
+    height: 30px;
+    margin: -2% 0 auto 1%;
+    background: #6558C3;
+    border-radius: 4px;
+    border: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #FFFFFF;
+
+}
+
+h1#searchTitle {
+    margin: 0 0 1.8% 16.4%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    margin-right: 16.4%;
+    margin-left: 16.4%;
+    margin-bottom: 15rem;
+    gap: 1.4%;
+}
+
+.card img {
+    width: 100%;
+    max-width: 300px;
+    height: 140px;
+    border-radius: 15px;
+}
+
+.card a:visited {
+    color: #111111;
+    
+}
+
+.card h1, .card a {
+    width: fit-content;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    margin-top: 1.8%;
+    color: #111111;
+}
+
+.card p {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    margin-top: 2%;
+    margin-bottom: 5.4%;
+    color: #777777;
+}
+
+.card .gotoDetails {
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #999999;
+    background-color: #eeeeee;
+    padding: 2.75%;
+    margin-top: 8%;
+    position: fixed;
+    width: 100vw;
+    bottom: -3px;
+}

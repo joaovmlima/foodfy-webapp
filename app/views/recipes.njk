@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/styleRecipes.css">
+        <title>Foodfy - Receitas</title>
+    </head>
+
+    <body onload="changeSelectedOption()">
+        <header>
+            <a id="logo" href="/"><img src="/assets/logo.png" alt="logo Foodfy"></a>
+
+            <a id="about" href="/about">Sobre</a>
+            <a id="recipes" href="/recipes">Receitas</a>
+            <a id="chefs" href="/chefs">Chefs</a>
+            <form action="/" method="GET">
+                <input name="filter" type="text" placeholder="Buscar uma receita" class="search">
+                <button class="search" type="submit">Buscar</button>
+            </form>
+        </header>
+
+        <div id="selector">
+            <label for="showPerPage">Mostrar por página</label>
+            <select id="showPerPage" onChange="reloadPage(this.value)">
+                <option value="4" id="4">4</option>
+                <option value="8" id="8">8</option>
+                <option value="12" id="12">12</option>
+            </select>
+        </div>
+
+        <section class="cards">
+            {% for recipe in recipes %}
+                <div class="card">
+                    <a class="gotoDetails" href="/recipes/{{recipe.id}}">
+                        <img src="{{recipe.image}}" alt="Foto de {{recipe.title}}">
+                    </a>
+                    <h1>
+                        <a class="gotoDetails" href="/recipes/{{recipe.id}}">{{recipe.title}}</a>
+                    </h1>
+                    <p>por
+                        {{recipe.name}}
+                    </p>
+                </div>
+            {% endfor %}
+        </section>
+
+        <footer>
+            <p>Todos direitos reservados, receitas Foodfy.</p>
+        </footer>
+
+        <script>
+            function reloadPage(showPerPage) {
+                document.location = 'recipes?limit=' + showPerPage
+            }
+
+            function changeSelectedOption() {
+                limit = {{limit}}
+
+                selectedValue = document.getElementById(`${limit}`)
+                selectedValue.setAttribute("selected", "selected")
+                console.log("teste")
+            }
+        </script>
+
+        <script src="/js/scripts.js"></script>
+
+    </body>

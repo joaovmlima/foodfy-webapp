@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/adminStyles/styleAdminChefEdit.css">
+        <link rel="stylesheet" href="/css/adminStyles/styleAdminChefCreate.css">
         <title>Cadastrar Chef</title>
     </head>
 
@@ -16,8 +16,7 @@
         </header>
 
         <div class="chefHeader">
-            <h1>Editando chef</h1>
-            <button id="delete" type="submit" form="deleteForm">Deletar</button>
+            <h1>Criando chef</h1>
             <button id="save" type="submit" form="chefForm">Salvar chef</button>
         </div>
 
@@ -25,16 +24,15 @@
             <form class="chefForm" id="chefForm" method="POST" action="/admin/chefs">
                 <div id="avatar">
                     <span>Avatar</span>
-                    <input type="url" name="avatar_url" value="{{chef.avatar_url}}">
+                    <input type="url" name="avatar_url">
                 </div>
 
                 <div id="name">
                     <span>Nome</span>
-                    <input type="text" name="name" value="{{chef.name}}">
+                    <input type="text" name="name">
                 </div>
-            </form>
-            <form id="deleteForm" method="POST" action="/admin/chefs/{{chef.id}}?_method=DELETE"></form>
-        </section>
-    </body>
 
-</html>
+            </section>
+        </body>
+
+    </html>
