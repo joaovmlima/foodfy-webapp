@@ -23,7 +23,7 @@
 
         <div id="selector">
             <label for="showPerPage">Mostrar por página</label>
-            <select id="showPerPage" onChange="reloadPage(this.value)">
+            <select id="showPerPage" onChange="reloadPage(this.value, {{currentPage}})">
                 <option value="4" id="4">4</option>
                 <option value="8" id="8">8</option>
                 <option value="12" id="12">12</option>
@@ -46,13 +46,19 @@
             {% endfor %}
         </section>
 
+        <div id="pages">
+            {% for page in totalPages %}
+                <a href="/recipes/?page={{page}}">{{page}}</a>
+            {% endfor %}
+        </div>
+
         <footer>
             <p>Todos direitos reservados, receitas Foodfy.</p>
         </footer>
 
         <script>
-            function reloadPage(showPerPage) {
-                document.location = 'recipes?limit=' + showPerPage
+            function reloadPage(showPerPage, currentPage) {
+                document.location = '?limit=' + showPerPage + '&page=' + currentPage
             }
 
             function changeSelectedOption() {
@@ -60,7 +66,6 @@
 
                 selectedValue = document.getElementById(`${limit}`)
                 selectedValue.setAttribute("selected", "selected")
-                console.log("teste")
             }
         </script>
 
