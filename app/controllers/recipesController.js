@@ -37,7 +37,7 @@ module.exports = {
 
     page = page || 1
     limit = limit || 4
-    let offset = limit * (page - 1)
+    let offset = 4 * (page - 1)
 
     let previousPage = Number(page) - 1
     let nextPage = Number(page) + 1
