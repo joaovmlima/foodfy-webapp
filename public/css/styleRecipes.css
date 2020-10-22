@@ -1,133 +1,147 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 #logo {
-    margin-left: 16.5%;
-    margin-top: 3.3%;
-    margin-right: 8.7%;
-    margin-bottom: 4.6%;
+  margin-left: 16.5%;
+  margin-top: 3.3%;
+  margin-right: 8.7%;
+  margin-bottom: 4.6%;
 }
 
-#logo:hover, #logo:active {
-    cursor: pointer;
+#logo:hover,
+#logo:active {
+  cursor: pointer;
 }
 
 header {
-    display: flex;
+  display: flex;
 }
 
 header #recipes {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 header a {
-    color: #111111;
-    margin-top: 3.4%;
-    margin-right: 2.1%;
-    margin-bottom: 3.3%;
-    text-decoration: none;
-    font-size: 1.6rem;
-    height: min-content;
+  color: #111111;
+  margin-top: 3.4%;
+  margin-right: 2.1%;
+  margin-bottom: 3.3%;
+  text-decoration: none;
+  font-size: 1.6rem;
+  height: min-content;
 }
 
 form {
-    display: inherit;
-    margin:3.4% 0 0 25%;
+  display: inherit;
+  margin: 3.4% 0 0 25%;
 }
 
 header input.search {
-    width: 180px;
-    height: 22px;
-    padding-left: 0.4%;
-    margin-top: -1%;
-    border: solid #DDDDDD 1px;
+  width: 180px;
+  height: 22px;
+  padding-left: 0.4%;
+  margin-top: -1%;
+  border: solid #dddddd 1px;
 }
 
 header button.search {
-    width: 91px;
-    height: 30px;
-    margin: -2% 0 auto 1%;
-    background: #6558C3;
-    border-radius: 4px;
-    border: none;
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #FFFFFF;
-
+  width: 91px;
+  height: 30px;
+  margin: -2% 0 auto 1%;
+  background: #6558c3;
+  border-radius: 4px;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 div#selector {
-    display: inline-flex;
-    width: 100vw;
-    margin-bottom: 1%;
+  display: inline-flex;
+  width: 100vw;
+  margin-bottom: 1%;
 }
 
 div#selector label {
-    font-size: 1.4rem;
-    margin: 0 0 0 73.9%;
+  font-size: 1.4rem;
+  margin: 0 0 0 73.9%;
 }
 
 div#selector #showPerPage {
-    margin: 0 0 0 1%;
+  margin: 0 0 0 1%;
 }
 
 .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    margin-right: 16.4%;
-    margin-left: 16.4%;
-    margin-bottom: 15rem;
-    gap: 1.4%;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  margin-right: 16.4%;
+  margin-left: 16.4%;
+  margin-bottom: 15rem;
+  gap: 1.4%;
 }
 
 .card img {
-    width: 100%;
-    max-width: 300px;
-    height: 140px;
-    border-radius: 15px;
+  width: 100%;
+  max-width: 300px;
+  height: 140px;
+  border-radius: 15px;
 }
 
 .card a:visited {
-    color: #111111;
-    
+  color: #111111;
 }
 
-.card h1, .card a {
-    width: fit-content;
-    font-size: 1.8rem;
-    line-height: 2.1rem;
-    margin-top: 1.8%;
-    color: #111111;
+.card h1,
+.card a {
+  width: fit-content;
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  margin-top: 1.8%;
+  color: #111111;
 }
 
 .card p {
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-    margin-top: 2%;
-    margin-bottom: 5.4%;
-    color: #777777;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  margin-top: 2%;
+  margin-bottom: 5.4%;
+  color: #777777;
 }
 
 .card .gotoDetails {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+div#pages {
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  margin-bottom: 2%;
+  gap: 1%;
+}
+
+div#pages a,
+div#pages a:visited {
+  text-decoration: none;
+  color: #111111;
 }
 
 footer {
-    text-align: center;
-    font-size: 1.4rem;
-    color: #999999;
-    background-color: #eeeeee;
-    padding: 2.75% 0;
-    margin-top: 8%;
-    position: fixed;
-    width: 100vw;
-    bottom: -3px;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #999999;
+  background-color: #eeeeee;
+  padding: 2.75% 0;
+  width: 100vw;
+  bottom: 0;
 }

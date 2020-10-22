@@ -39,13 +39,28 @@ module.exports = {
     limit = limit || 4
     let offset = limit * (page - 1)
 
+    let previousPage = Number(page) - 1
+    let nextPage = Number(page) + 1
+    let totalPages = []
+
+    if (previousPage != 0) {
+      totalPages = [previousPage, Number(page), nextPage]
+    } else {
+      totalPages = [nextPage, nextPage + 1]
+    }
+
     if (filter) {
       db.query(
         `SELECT recipes.id, recipes.created_at, recipes.image, recipes.title, C.name FROM recipes LEFT JOIN chefs C ON(recipes.chef_id = C.id) WHERE recipes.title ILIKE '%${filter}%'`,
         function (err, results) {
           if (err) return res.send('Database Error!')
 
-          return res.render('search', { filter, recipes: results.rows })
+          return res.render('search', {
+            currentPage: page,
+            totalPages,
+            filter,
+            recipes: results.rows
+          })
         }
       )
     } else {
@@ -60,7 +75,12 @@ module.exports = {
         function (err, results) {
           if (err) return res.send('Database Error!')
 
-          return res.render('recipes', { limit, recipes: results.rows })
+          return res.render('recipes', {
+            currentPage: page,
+            totalPages,
+            limit,
+            recipes: results.rows
+          })
         }
       )
     }
