@@ -3,11 +3,13 @@ const db = require('../config/db')
 module.exports = {
   index(req, res) {
     let { filter } = req.query
+
     if (filter) {
       db.query(
-        `SELECT recipes.id, recipes.created_at, recipes.image, recipes.title, C.name FROM recipes LEFT JOIN chefs C ON(recipes.chef_id = C.id) WHERE recipes.title ILIKE '%${filter}%'`,
+        "SELECT recipes.id, recipes.created_at, recipes.image, recipes.title, C.name FROM recipes LEFT JOIN chefs C ON(recipes.chef_id = C.id) WHERE recipes.title ILIKE '%' || ($1) || '%'",
+        [filter],
         function (err, results) {
-          if (err) return res.send('Database Error!')
+          if (err) return res.send('Database Error!'), console.log(err)
 
           return res.render('search', { filter, recipes: results.rows })
         }
@@ -51,7 +53,8 @@ module.exports = {
 
     if (filter) {
       db.query(
-        `SELECT recipes.id, recipes.created_at, recipes.image, recipes.title, C.name FROM recipes LEFT JOIN chefs C ON(recipes.chef_id = C.id) WHERE recipes.title ILIKE '%${filter}%'`,
+        `SELECT recipes.id, recipes.created_at, recipes.image, recipes.title, C.name FROM recipes LEFT JOIN chefs C ON(recipes.chef_id = C.id) WHERE recipes.title ILIKE '%' || ($1) || '%'`,
+        [filter],
         function (err, results) {
           if (err) return res.send('Database Error!')
 
@@ -100,7 +103,8 @@ module.exports = {
       `SELECT * FROM recipes 
     LEFT JOIN chefs C 
     ON (recipes.chef_id = C.id) 
-    WHERE recipes.id = ${id}`,
+    WHERE recipes.id = ($1)`,
+      [id],
       function (err, results) {
         if (err) return res.send('Database Error!')
         let recipe = results.rows[0]
@@ -126,7 +130,8 @@ module.exports = {
       `SELECT *, chefs.id AS chef_id
             from chefs
             LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
-            WHERE chefs.id = ${id}`,
+            WHERE chefs.id = ($1)`,
+      [id],
       function (err, results) {
         if (err) return res.send('Database Error!')
 
