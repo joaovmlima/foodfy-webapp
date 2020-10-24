@@ -22,7 +22,7 @@
         </div>
 
         <section>
-            <form class="chefForm" id="chefForm" method="POST" action="/admin/chefs">
+            <form class="chefForm" id="chefForm" method="POST" action="/admin/chefs/{{chef.id}}?_method=PUT">
                 <div id="avatar">
                     <span>Avatar</span>
                     <input type="url" name="avatar_url" value="{{chef.avatar_url}}">

@@ -34,7 +34,8 @@ module.exports = {
       `SELECT *, chefs.id AS chef_id
             FROM chefs
             LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
-            WHERE recipes.id = ${id}`,
+            WHERE recipes.id = ($1)`,
+      [id],
       function (err, results) {
         if (err) return res.send('Database Error!')
 
@@ -125,9 +126,12 @@ module.exports = {
   async edit(req, res) {
     const { id } = req.params
 
-    const recipe = await queryDb(`SELECT *
+    const recipe = await queryDb(
+      `SELECT *
         FROM recipes 
-        WHERE recipes.id = ${id}`).then((results) => results.rows[0])
+        WHERE recipes.id = $1`,
+      [id]
+    ).then((results) => results.rows[0])
     const chefs = await queryDb(`SELECT * from chefs`).then((results) => results.rows)
     res.render('adminVersion/adminRecipeEdit', { recipe, chefs })
   },
@@ -155,7 +159,7 @@ module.exports = {
   },
 
   chefs_index(req, res) {
-    db.query(`SELECT * FROM chefs`, function (err, results) {
+    db.query(`SELECT * FROM chefs ORDER BY created_at`, function (err, results) {
       if (err) return res.send('Database Error!')
 
       return res.render('adminVersion/adminChefs', { chefs: results.rows })
@@ -169,7 +173,8 @@ module.exports = {
       `SELECT *, chefs.id AS chef_id
             from chefs
             LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
-            WHERE chefs.id = ${id}`,
+            WHERE chefs.id = ($1)`,
+      [id],
       function (err, results) {
         if (err) return res.send('Database Error!')
 
@@ -219,10 +224,29 @@ module.exports = {
 
   chefs_edit(req, res) {
     const { id } = req.params
-    db.query(`SELECT * FROM chefs WHERE id = ${id}`, function (err, results) {
+    db.query(`SELECT * FROM chefs WHERE id = ($1)`, [id], function (err, results) {
       if (err) return res.send('Database error!')
 
       return res.render(`adminVersion/adminChefEdit`, { chef: results.rows[0] })
+    })
+  },
+
+  chefs_put(req, res) {
+    const { id } = req.params
+    const query = `
+        UPDATE chefs SET
+        avatar_url = ($1),
+        name = ($2)
+        WHERE id = ($3)
+        `
+    const values = [req.body.avatar_url, req.body.name, req.params.id]
+
+    db.query(query, values, function (err, results) {
+      if (err) {
+        console.log(err)
+        return res.send('Database Error!')
+      }
+      return res.redirect(`/admin/chefs/${id}`)
     })
   },
 
@@ -238,14 +262,14 @@ module.exports = {
         console.log(err)
         return res.send('Database Error!')
       }
-      return res.redirect(`/admin/recipes`)
+      return res.redirect(`/admin/chefs`)
     })
   }
 }
 
-function queryDb(query) {
+function queryDb(query, values) {
   return new Promise((resolve, reject) => {
-    db.query(query, (err, results) => {
+    db.query(query, values, (err, results) => {
       if (err) return reject(err)
       return resolve(results)
     })
