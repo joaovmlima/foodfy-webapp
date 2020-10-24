@@ -32,6 +32,8 @@ routes.get('/admin/chefs/:id', adminController.chefs_show)
 
 routes.get('/admin/chefs/:id/edit', adminController.chefs_edit)
 
+routes.put('/admin/chefs/:id', adminController.chefs_put)
+
 routes.delete('/admin/chefs/:id', adminController.chefs_delete)
 
 module.exports = routes
