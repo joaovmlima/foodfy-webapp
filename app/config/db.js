@@ -1,7 +1,7 @@
 const { Client } = require('pg')
 
 const client = new Client({
-    connectionString: process.env.DATABASE_URL || 'postgresql://postgres:foodfy@192.168.0.42:5050/foodfy',
+    connectionString: process.env.DATABASE_URL || 'postgresql://postgres:postgres@192.168.1.42:5432/postgres',
     ssl: false
 })
 
