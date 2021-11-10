@@ -1,6 +1,17 @@
 const express = require('express')
 const adminController = require('../controllers/adminController')
+const passport = require('passport')
 const routes = express.Router()
+
+
+// Login
+routes.get('/login', adminController.login)
+
+routes.post('/login',
+  passport.authenticate('local', { successRedirect: '/admin',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+)
 
 // ------- RECIPES
 

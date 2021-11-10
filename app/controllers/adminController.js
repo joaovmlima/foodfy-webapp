@@ -1,6 +1,11 @@
 const db = require('../config/db')
 
 module.exports = {
+  // ------- LOGIN
+  login: (req, res) => {
+    return res.render('adminVersion/login')
+  },
+
   // ------- RECIPES
   index(req, res) {
     db.query(
